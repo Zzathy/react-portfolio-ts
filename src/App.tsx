@@ -1,6 +1,37 @@
 // The exported code uses Tailwind CSS. Install Tailwind CSS in your dev environment to ensure all styles work.
 import React, { useState, useEffect } from "react";
 import {
+  BiLogoCPlusPlus,
+  BiLogoCss3,
+  BiLogoGoLang,
+  BiLogoHtml5,
+  BiLogoJava,
+  BiLogoJavascript,
+  BiLogoPhp,
+  BiLogoPython,
+  BiLogoTypescript,
+  BiLogoBootstrap,
+  BiLogoDjango,
+  BiLogoGraphql,
+  BiLogoJquery,
+  BiLogoNodejs,
+  BiLogoReact,
+  BiLogoTailwindCss,
+  BiLogoFirebase,
+  BiLogoMongodb,
+  BiLogoPostgresql,
+  BiLogoAws,
+  BiLogoDigitalocean,
+  BiLogoDocker,
+  BiLogoGitlab,
+  BiLogoGoogleCloud,
+  BiLogoHeroku,
+  BiLogoKubernetes,
+  BiLogoNetlify,
+  BiLogoGit,
+  BiLogoGithub,
+} from "react-icons/bi";
+import {
   FaArrowRight,
   FaArrowUp,
   FaBars,
@@ -8,6 +39,39 @@ import {
   FaLocationDot,
   FaPhone,
 } from "react-icons/fa6";
+import {
+  SiDotnet,
+  SiAdonisjs,
+  SiExpress,
+  SiFastapi,
+  SiFastify,
+  SiFilament,
+  SiGin,
+  SiJsonwebtokens,
+  SiLaravel,
+  SiLivewire,
+  SiNextdotjs,
+  SiOpencv,
+  SiRabbitmq,
+  SiStrapi,
+  SiMariadb,
+  SiMysql,
+  SiRedis,
+  SiSqlite,
+  SiApache,
+  SiCloudflare,
+  SiGithubactions,
+  SiJenkins,
+  SiNginx,
+  SiVercel,
+  SiBitbucket,
+  SiEslint,
+  SiNotion,
+  SiNpm,
+  SiPostman,
+  SiPrettier,
+  SiUbuntu,
+} from "react-icons/si";
 
 const App: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -270,53 +334,89 @@ const App: React.FC = () => {
               {
                 category: "Programming Languages",
                 skills: [
-                  { name: "JavaScript", icon: "fab fa-js" },
-                  { name: "Python", icon: "fab fa-python" },
-                  { name: "Java", icon: "fab fa-java" },
-                  { name: "PHP", icon: "fab fa-php" },
-                  { name: "TypeScript", icon: "fab fa-js" },
-                  { name: "Go", icon: "fas fa-code" },
+                  // { name: "C", icon:  },
+                  { name: "C++", icon: <BiLogoCPlusPlus /> },
+                  { name: "CSS", icon: <BiLogoCss3 /> },
+                  { name: "Go", icon: <BiLogoGoLang /> },
+                  { name: "HTML", icon: <BiLogoHtml5 /> },
+                  { name: "Java", icon: <BiLogoJava /> },
+                  { name: "Javascript", icon: <BiLogoJavascript /> },
+                  { name: "PHP", icon: <BiLogoPhp /> },
+                  { name: "Python", icon: <BiLogoPython /> },
+                  { name: "Typescript", icon: <BiLogoTypescript /> },
                 ],
               },
               {
                 category: "Frameworks & Libraries",
                 skills: [
-                  { name: "React", icon: "fab fa-react" },
-                  { name: "Node.js", icon: "fab fa-node-js" },
-                  { name: "Vue.js", icon: "fab fa-vuejs" },
-                  { name: "Angular", icon: "fab fa-angular" },
-                  { name: "Express", icon: "fas fa-server" },
-                  { name: "Spring", icon: "fas fa-leaf" },
+                  { name: ".NET", icon: <SiDotnet /> },
+                  { name: "AdonisJS", icon: <SiAdonisjs /> },
+                  { name: "Bootstrap", icon: <BiLogoBootstrap /> },
+                  { name: "Django", icon: <BiLogoDjango /> },
+                  { name: "Express.js", icon: <SiExpress /> },
+                  { name: "FastAPI", icon: <SiFastapi /> },
+                  { name: "Fastify", icon: <SiFastify /> },
+                  { name: "Filament", icon: <SiFilament /> },
+                  { name: "Gin", icon: <SiGin /> },
+                  { name: "GraphQL", icon: <BiLogoGraphql /> },
+                  { name: "JQuery", icon: <BiLogoJquery /> },
+                  { name: "JWT", icon: <SiJsonwebtokens /> },
+                  { name: "Laravel", icon: <SiLaravel /> },
+                  { name: "Livewire", icon: <SiLivewire /> },
+                  { name: "Next.js", icon: <SiNextdotjs /> },
+                  { name: "Node.js", icon: <BiLogoNodejs /> },
+                  { name: "OpenCV", icon: <SiOpencv /> },
+                  { name: "RabbitMQ", icon: <SiRabbitmq /> },
+                  { name: "React", icon: <BiLogoReact /> },
+                  { name: "React Native", icon: <BiLogoReact /> },
+                  { name: "Strapi", icon: <SiStrapi /> },
+                  { name: "TailwindCSS", icon: <BiLogoTailwindCss /> },
                 ],
               },
               {
                 category: "Databases",
                 skills: [
-                  { name: "MongoDB", icon: "fas fa-database" },
-                  { name: "PostgreSQL", icon: "fas fa-database" },
-                  { name: "MySQL", icon: "fas fa-database" },
-                  { name: "Redis", icon: "fas fa-server" },
-                  { name: "Elasticsearch", icon: "fas fa-search" },
+                  { name: "Firebase", icon: <BiLogoFirebase /> },
+                  { name: "MariaDB", icon: <SiMariadb /> },
+                  { name: "MongoDB", icon: <BiLogoMongodb /> },
+                  { name: "MySQL", icon: <SiMysql /> },
+                  { name: "PostgreSQL", icon: <BiLogoPostgresql /> },
+                  { name: "Redis", icon: <SiRedis /> },
+                  { name: "SQLite", icon: <SiSqlite /> },
                 ],
               },
               {
                 category: "DevOps & Cloud",
                 skills: [
-                  { name: "Docker", icon: "fab fa-docker" },
-                  { name: "Kubernetes", icon: "fas fa-dharmachakra" },
-                  { name: "AWS", icon: "fab fa-aws" },
-                  { name: "Azure", icon: "fab fa-microsoft" },
-                  { name: "Jenkins", icon: "fas fa-cogs" },
+                  { name: "Apache", icon: <SiApache /> },
+                  { name: "AWS", icon: <BiLogoAws /> },
+                  { name: "Cloudflare", icon: <SiCloudflare /> },
+                  { name: "DigitalOcean", icon: <BiLogoDigitalocean /> },
+                  { name: "Docker", icon: <BiLogoDocker /> },
+                  { name: "Github Actions", icon: <SiGithubactions /> },
+                  { name: "Gitlab CI", icon: <BiLogoGitlab /> },
+                  { name: "Google Cloud", icon: <BiLogoGoogleCloud /> },
+                  { name: "Heroku", icon: <BiLogoHeroku /> },
+                  { name: "Jenkins", icon: <SiJenkins /> },
+                  { name: "Kubernetes", icon: <BiLogoKubernetes /> },
+                  { name: "Netlify", icon: <BiLogoNetlify /> },
+                  { name: "Nginx", icon: <SiNginx /> },
+                  { name: "Vercel", icon: <SiVercel /> },
                 ],
               },
               {
                 category: "Tools & Platforms",
                 skills: [
-                  { name: "Git", icon: "fab fa-git-alt" },
-                  { name: "Linux", icon: "fab fa-linux" },
-                  { name: "Jira", icon: "fab fa-jira" },
-                  { name: "VS Code", icon: "fas fa-code" },
-                  { name: "Postman", icon: "fas fa-paper-plane" },
+                  { name: "Bitbucket", icon: <SiBitbucket /> },
+                  { name: "ESLint", icon: <SiEslint /> },
+                  { name: "Git", icon: <BiLogoGit /> },
+                  { name: "Github", icon: <BiLogoGithub /> },
+                  { name: "Gitlab", icon: <BiLogoGitlab /> },
+                  { name: "Notion", icon: <SiNotion /> },
+                  { name: "NPM", icon: <SiNpm /> },
+                  { name: "Postman", icon: <SiPostman /> },
+                  { name: "Prettier", icon: <SiPrettier /> },
+                  { name: "Ubuntu", icon: <SiUbuntu /> },
                 ],
               },
             ].map((category, categoryIndex) => (
@@ -335,9 +435,9 @@ const App: React.FC = () => {
                       key={skillIndex}
                       className="flex flex-col items-center justify-center p-4 bg-[#1a1a1a] rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20"
                     >
-                      <i
-                        className={`${skill.icon} text-3xl md:text-4xl mb-2 text-gray-300`}
-                      ></i>
+                      <div className="text-3xl md:text-4xl mb-2 text-gray-300">
+                        {skill.icon}
+                      </div>
                       <span className="text-xs text-gray-400">
                         {skill.name}
                       </span>
@@ -552,21 +652,21 @@ const App: React.FC = () => {
           <div className="mt-16 flex flex-col md:flex-row justify-center items-center md:space-x-12 space-y-8 md:space-y-0">
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-[#2a2a2a] rounded-full flex items-center justify-center mb-3">
-                <FaEnvelope />
+                <FaEnvelope className="text-white" />
               </div>
               <h3 className="text-lg font-medium">Email</h3>
               <p className="text-gray-400">contact@johndoe.dev</p>
             </div>
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-[#2a2a2a] rounded-full flex items-center justify-center mb-3">
-                <FaLocationDot />
+                <FaLocationDot className="text-white" />
               </div>
               <h3 className="text-lg font-medium">Location</h3>
               <p className="text-gray-400">San Francisco, CA</p>
             </div>
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-[#2a2a2a] rounded-full flex items-center justify-center mb-3">
-                <FaPhone />
+                <FaPhone className="text-white" />
               </div>
               <h3 className="text-lg font-medium">Phone</h3>
               <p className="text-gray-400">+1 (555) 123-4567</p>
