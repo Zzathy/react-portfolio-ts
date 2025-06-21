@@ -1,5 +1,13 @@
 // The exported code uses Tailwind CSS. Install Tailwind CSS in your dev environment to ensure all styles work.
 import React, { useState, useEffect } from "react";
+import {
+  FaArrowRight,
+  FaArrowUp,
+  FaBars,
+  FaEnvelope,
+  FaLocationDot,
+  FaPhone,
+} from "react-icons/fa6";
 
 const App: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,7 +67,7 @@ const App: React.FC = () => {
             ))}
           </div>
           <button className="md:hidden absolute right-6 text-white cursor-pointer !rounded-button whitespace-nowrap bg-white/5 p-2 rounded-full backdrop-blur-sm">
-            <i className="fas fa-bars text-xl"></i>
+            <FaBars />
           </button>
         </div>
       </nav>
@@ -468,9 +476,10 @@ const App: React.FC = () => {
                   </div>
                   <a
                     href={project.link}
-                    className="inline-block bg-[#2a2a2a] text-gray-300 px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors !rounded-button whitespace-nowrap cursor-pointer"
+                    className="inline-flex items-center bg-[#2a2a2a] text-gray-300 px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors !rounded-button whitespace-nowrap cursor-pointer"
                   >
-                    View Project <i className="fas fa-arrow-right ml-1"></i>
+                    <span>View Project</span>
+                    <FaArrowRight className="ml-2" />
                   </a>
                 </div>
               </div>
@@ -543,21 +552,21 @@ const App: React.FC = () => {
           <div className="mt-16 flex flex-col md:flex-row justify-center items-center md:space-x-12 space-y-8 md:space-y-0">
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-[#2a2a2a] rounded-full flex items-center justify-center mb-3">
-                <i className="fas fa-envelope text-white"></i>
+                <FaEnvelope />
               </div>
               <h3 className="text-lg font-medium">Email</h3>
               <p className="text-gray-400">contact@johndoe.dev</p>
             </div>
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-[#2a2a2a] rounded-full flex items-center justify-center mb-3">
-                <i className="fas fa-map-marker-alt text-white"></i>
+                <FaLocationDot />
               </div>
               <h3 className="text-lg font-medium">Location</h3>
               <p className="text-gray-400">San Francisco, CA</p>
             </div>
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-[#2a2a2a] rounded-full flex items-center justify-center mb-3">
-                <i className="fas fa-phone text-white"></i>
+                <FaPhone />
               </div>
               <h3 className="text-lg font-medium">Phone</h3>
               <p className="text-gray-400">+1 (555) 123-4567</p>
@@ -608,7 +617,7 @@ const App: React.FC = () => {
         onClick={() => scrollToSection("home")}
         className="fixed bottom-6 right-6 bg-white text-black w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer"
       >
-        <i className="fas fa-arrow-up"></i>
+        <FaArrowUp />
       </button>
     </div>
   );
