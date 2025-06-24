@@ -187,15 +187,16 @@ const App: React.FC = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="text-xl font-semibold text-white">
-                      Master of Computer Science
+                      Bachelor of Computer Science
                     </h4>
-                    <p className="text-gray-400">Stanford University</p>
+                    <p className="text-gray-400">
+                      University of Muhammadiyah Malang
+                    </p>
                   </div>
-                  <span className="text-sm text-gray-500">2022 - 2024</span>
+                  <span className="text-sm text-gray-500">2021 - 2025</span>
                 </div>
                 <p className="text-gray-400 text-sm">
-                  Specialized in Artificial Intelligence and Machine Learning.
-                  Achieved 3.9 GPA.
+                  Specialized in Software Engineering. Achieved 3.8 GPA.
                 </p>
               </div>
 
@@ -203,15 +204,14 @@ const App: React.FC = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="text-xl font-semibold text-white">
-                      Bachelor of Software Engineering
+                      SMKN 1 Banyuwangi
                     </h4>
-                    <p className="text-gray-400">MIT</p>
+                    <p className="text-gray-400">Vocational High School</p>
                   </div>
-                  <span className="text-sm text-gray-500">2018 - 2022</span>
+                  <span className="text-sm text-gray-500">2019 - 2021</span>
                 </div>
                 <p className="text-gray-400 text-sm">
-                  Major in Software Engineering with minor in Data Science.
-                  Dean's List all semesters.
+                  Major in Software Engineering.
                 </p>
               </div>
             </div>
@@ -226,38 +226,21 @@ const App: React.FC = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="text-xl font-semibold text-white">
-                      Senior Software Engineer
+                      Web Developer Intern
                     </h4>
-                    <p className="text-gray-400">Google</p>
+                    <p className="text-gray-400">
+                      API Banyuwangi (Indonesian Pilot Academy)
+                    </p>
                   </div>
-                  <span className="text-sm text-gray-500">2024 - Present</span>
-                </div>
-                <ul className="text-gray-400 text-sm list-disc list-inside space-y-2">
-                  <li>Lead developer for cloud infrastructure projects</li>
-                  <li>Optimized system performance by 40%</li>
-                  <li>Mentored junior developers and conducted code reviews</li>
-                </ul>
-              </div>
-
-              <div className="bg-[#1a1a1a] p-6 rounded-xl space-y-4">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h4 className="text-xl font-semibold text-white">
-                      Software Engineer
-                    </h4>
-                    <p className="text-gray-400">Microsoft</p>
-                  </div>
-                  <span className="text-sm text-gray-500">2022 - 2024</span>
+                  <span className="text-sm text-gray-500">
+                    February 2025 - March 2025
+                  </span>
                 </div>
                 <ul className="text-gray-400 text-sm list-disc list-inside space-y-2">
                   <li>
-                    Developed microservices architecture for Azure platform
-                  </li>
-                  <li>
-                    Implemented CI/CD pipelines reducing deployment time by 60%
-                  </li>
-                  <li>
-                    Collaborated with cross-functional teams on major features
+                    Transformed the static Public Information (PPID) portal into
+                    a dynamic Laravel application by building the entire
+                    back-end and a custom admin panel from scratch.
                   </li>
                 </ul>
               </div>
@@ -266,22 +249,75 @@ const App: React.FC = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="text-xl font-semibold text-white">
-                      Software Developer Intern
+                      Laboratory Assistant (Part-time)
                     </h4>
-                    <p className="text-gray-400">Amazon</p>
+                    <p className="text-gray-400">
+                      Informatics Laboratory, University of Muhammadiyah Malang
+                    </p>
                   </div>
-                  <span className="text-sm text-gray-500">Summer 2021</span>
+                  <span className="text-sm text-gray-500">2022 - Present</span>
                 </div>
                 <ul className="text-gray-400 text-sm list-disc list-inside space-y-2">
-                  <li>Built RESTful APIs for e-commerce platform</li>
-                  <li>Improved search algorithm efficiency by 25%</li>
-                  <li>Participated in Agile development processes</li>
+                  <li>
+                    Gained extensive teaching and mentoring experience by
+                    assisting in a total of 40 practicum classes from semester 3
+                    to 8, guiding classes of up to 40 students each.
+                  </li>
+                  <li>
+                    As Practicum Coordinator for 16 core courses, was entrusted
+                    to lead entire lab sessions in the lecturer's absence, in
+                    addition to managing a team of 4 other assistants and
+                    serving as the primary liaison for all course-related
+                    matters.
+                  </li>
+                  <li>
+                    Served as the Lead Assistant for the 2021 batch,
+                    coordinating schedules and managing responsibilities for a
+                    team of 19 laboratory assistants.
+                  </li>
+                  <li>
+                    Contributed to the re-engineering of the "i-Lab" practicum
+                    application by developing activity logging API service using
+                    Go (Golang) and the Gin framework.
+                  </li>
+                  <li>
+                    Contributed to the development of a new peer-review feature
+                    within the "Simutu" application, enabling assistants to
+                    provide performance feedback to one another using Laravel.
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-[#1a1a1a] p-6 rounded-xl space-y-4">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h4 className="text-xl font-semibold text-white">
+                      Web Developer (Part-time)
+                    </h4>
+                    <p className="text-gray-400">Pixel Dev Factory</p>
+                  </div>
+                  <span className="text-sm text-gray-500">
+                    January 2021 - September 2021
+                  </span>
+                </div>
+                <ul className="text-gray-400 text-sm list-disc list-inside space-y-2">
+                  <li>
+                    Contributed to the development of a School Budgeting
+                    Application (RAPBS), implementing a full CRUD system in
+                    Laravel for student data with Excel import/export
+                    functionality.
+                  </li>
+                  <li>
+                    Contributed to the development of an e-commerce web
+                    application for SMEs (Small and Medium-sized Enterprises),
+                    with a focus on back-end development using Laravel.
+                  </li>
                 </ul>
               </div>
             </div>
 
             {/* Certifications */}
-            <div className="md:col-span-2 mt-8">
+            {/* <div className="md:col-span-2 mt-8">
               <h3 className="text-2xl font-semibold mb-8 text-center">
                 Certifications
               </h3>
@@ -318,7 +354,7 @@ const App: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
