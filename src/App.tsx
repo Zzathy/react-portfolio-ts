@@ -718,10 +718,11 @@ const App: React.FC = () => {
       {/* Footer */}
       <footer className="bg-black py-10">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col justify-between items-center">
             <div className="mb-6 md:mb-0">
               <p className="text-gray-500">
-                &copy; {new Date().getFullYear()} John Doe. All rights reserved.
+                &copy; {new Date().getFullYear()} Izza Ihsan Fathony. All rights
+                reserved.
               </p>
             </div>
             <div className="flex space-x-6">
