@@ -285,6 +285,11 @@ const App: React.FC = () => {
                     within the "Simutu" application, enabling assistants to
                     provide performance feedback to one another using Laravel.
                   </li>
+                  <li>
+                    Designed and developed the back-end system for "Jacketlab,"
+                    a new e-commerce platform built with Laravel to digitize and
+                    simplify the process of purchasing lab jackets for students.
+                  </li>
                 </ul>
               </div>
 
