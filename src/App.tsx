@@ -1,5 +1,6 @@
 // The exported code uses Tailwind CSS. Install Tailwind CSS in your dev environment to ensure all styles work.
 import React, { useState, useEffect } from "react";
+import profileImage from "./assets/images/profile.jpg";
 import {
   BiLogoCPlusPlus,
   BiLogoCss3,
@@ -113,7 +114,7 @@ const App: React.FC = () => {
       >
         <div className="container mx-auto px-6 py-5 flex justify-center items-center relative">
           <div className="absolute left-6 text-xl font-bold bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent">
-            JD
+            IIF
           </div>
           <div className="hidden md:flex items-center bg-white/5 backdrop-blur-sm px-6 py-2 rounded-full space-x-10">
             {["Home", "Resume", "Skills", "Projects", "Contact"].map((item) => (
@@ -143,27 +144,25 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center text-center">
             <div className="w-32 h-32 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-8 border-2 border-gray-600">
-              <span className="text-4xl font-bold text-white">JD</span>
+              <img
+                src={profileImage}
+                alt=""
+                className="rounded-full object-cover w-full h-full"
+              />
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              John Doe
+              Izza Ihsan Fathony
             </h1>
             <p className="text-xl md:text-2xl text-gray-400 mb-8">
-              Backend Developer & System Architect
+              Backend Developer
             </p>
             <div className="flex space-x-4">
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer"
-              >
-                View Projects
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-colors !rounded-button whitespace-nowrap cursor-pointer"
-              >
-                Contact Me
-              </button>
+              <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+                <button className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer">
+                  {/* <FaFilePdf /> */}
+                  <span>View CV</span>
+                </button>
+              </a>
             </div>
           </div>
         </div>
