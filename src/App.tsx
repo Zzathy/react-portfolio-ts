@@ -725,32 +725,6 @@ const App: React.FC = () => {
                 reserved.
               </p>
             </div>
-            <div className="flex space-x-6">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors cursor-pointer"
-              >
-                <i className="fab fa-github text-xl"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors cursor-pointer"
-              >
-                <i className="fab fa-linkedin text-xl"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors cursor-pointer"
-              >
-                <i className="fab fa-twitter text-xl"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors cursor-pointer"
-              >
-                <i className="fab fa-medium text-xl"></i>
-              </a>
-            </div>
           </div>
         </div>
       </footer>
