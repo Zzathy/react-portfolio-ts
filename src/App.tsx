@@ -37,8 +37,10 @@ import {
   FaArrowUp,
   FaBars,
   FaEnvelope,
-  FaLocationDot,
-  FaPhone,
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
 } from "react-icons/fa6";
 import {
   SiDotnet,
@@ -77,6 +79,7 @@ import {
 const App: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   // Handle scroll events
   useEffect(() => {
     const handleScroll = () => {
@@ -102,6 +105,7 @@ const App: React.FC = () => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
+      setMobileNavOpen(false); // Close mobile nav on click
     }
   };
   return (
@@ -112,16 +116,17 @@ const App: React.FC = () => {
           isScrolled ? "bg-black/70 shadow-lg" : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-6 py-5 flex justify-center items-center relative">
+        <div className="container mx-auto px-4 sm:px-6 py-5 flex items-center relative justify-center">
           <div className="absolute left-6 text-xl font-bold bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent">
             IIF
           </div>
-          <div className="hidden md:flex items-center bg-white/5 backdrop-blur-sm px-6 py-2 rounded-full space-x-10">
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center bg-white/5 backdrop-blur-sm px-4 sm:px-6 py-2 rounded-full space-x-4 sm:space-x-10">
             {["Home", "Resume", "Skills", "Projects", "Contact"].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className={`!rounded-button whitespace-nowrap cursor-pointer transition-all duration-300 text-sm font-medium hover:text-gray-100 ${
+                className={`!rounded-button whitespace-nowrap cursor-pointer transition-all duration-300 text-xs sm:text-sm font-medium hover:text-gray-100 ${
                   activeSection === item.toLowerCase()
                     ? "text-white scale-105"
                     : "text-gray-400"
@@ -131,35 +136,86 @@ const App: React.FC = () => {
               </button>
             ))}
           </div>
-          <button className="md:hidden absolute right-6 text-white cursor-pointer !rounded-button whitespace-nowrap bg-white/5 p-2 rounded-full backdrop-blur-sm">
-            <FaBars />
+          <button
+            className="md:hidden absolute right-6 text-white cursor-pointer !rounded-button whitespace-nowrap bg-white/5 p-2 rounded-full backdrop-blur-sm"
+            onClick={() => setMobileNavOpen((open) => !open)}
+            aria-label="Open navigation menu"
+          >
+            <FaBars size={24} />
           </button>
+          {/* Mobile Nav Dropdown */}
+          {mobileNavOpen && (
+            <div className="fixed inset-0 z-50 flex items-start justify-center md:hidden">
+              {/* Overlay */}
+              <div
+                className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300"
+                onClick={() => setMobileNavOpen(false)}
+              />
+              {/* Menu Card */}
+              <div className="relative w-full max-w-xs mx-auto mt-20 bg-[#1E1E1E] rounded-2xl shadow-2xl p-8 flex flex-col items-center animate-slideDown border border-[#2a2a2a]">
+                <button
+                  className="absolute -top-5 -right-5 bg-[#2a2a2a] text-white rounded-full p-2 shadow-lg hover:bg-white hover:text-black transition-colors text-2xl font-bold leading-none border border-[#444]"
+                  onClick={() => setMobileNavOpen(false)}
+                  aria-label="Close navigation menu"
+                  style={{ width: 40, height: 40 }}
+                >
+                  ×
+                </button>
+                <nav className="w-full flex flex-col items-center space-y-6 mt-2">
+                  {["Home", "Resume", "Skills", "Projects", "Contact"].map(
+                    (item) => (
+                      <button
+                        key={item}
+                        onClick={() => scrollToSection(item.toLowerCase())}
+                        className={`w-full text-lg font-bold py-3 rounded-xl transition-all duration-200 tracking-wide shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 border border-[#2a2a2a] ${
+                          activeSection === item.toLowerCase()
+                            ? "bg-white text-black scale-105 shadow-lg"
+                            : "bg-[#2a2a2a] text-gray-300 hover:bg-white hover:text-black"
+                        }`}
+                      >
+                        {item}
+                      </button>
+                    )
+                  )}
+                </nav>
+              </div>
+              {/* Animation keyframes */}
+              <style>{`
+                @keyframes slideDown {
+                  0% { opacity: 0; transform: translateY(-40px) scale(0.98); }
+                  100% { opacity: 1; transform: translateY(0) scale(1); }
+                }
+                .animate-slideDown {
+                  animation: slideDown 0.35s cubic-bezier(.4,2,.6,1) both;
+                }
+              `}</style>
+            </div>
+          )}
         </div>
       </nav>
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center pt-16"
+        className="min-h-screen flex items-center justify-center pt-20 sm:pt-16"
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col items-center text-center">
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-8 border-2 border-gray-600">
+            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-6 sm:mb-8 border-2 border-gray-600">
               <img
                 src={profileImage}
                 alt=""
                 className="rounded-full object-cover w-full h-full"
               />
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Izza Ihsan Fathony
             </h1>
-            <p className="text-xl md:text-2xl text-gray-400 mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-6 sm:mb-8">
               Backend Developer
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-2 sm:space-x-4">
               <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
-                <button className="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer">
-                  {/* <FaFilePdf /> */}
+                <button className="bg-white text-black px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer text-xs sm:text-base">
                   <span>View CV</span>
                 </button>
               </a>
@@ -364,12 +420,12 @@ const App: React.FC = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-[#0a0a0a]">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
+      <section id="skills" className="py-16 sm:py-20 bg-[#0a0a0a]">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 text-center">
             Technical Skills
           </h2>
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             {[
               {
                 category: "Programming Languages",
@@ -460,25 +516,20 @@ const App: React.FC = () => {
                 ],
               },
             ].map((category, categoryIndex) => (
-              <div
-                key={categoryIndex}
-                className={`space-y-4 ${
-                  categoryIndex >= 2 ? "col-span-2 md:col-span-1" : ""
-                }`}
-              >
+              <div key={categoryIndex} className="space-y-4">
                 <h3 className="text-xl font-semibold text-gray-300 mb-6 text-center">
                   {category.category}
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6">
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
-                      className="flex flex-col items-center justify-center p-4 bg-[#1a1a1a] rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20"
+                      className="flex flex-col items-center justify-center p-2 sm:p-4 bg-[#1a1a1a] rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20"
                     >
-                      <div className="text-3xl md:text-4xl mb-2 text-gray-300">
+                      <div className="text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2 text-gray-300">
                         {skill.icon}
                       </div>
-                      <span className="text-xs text-gray-400">
+                      <span className="text-[10px] sm:text-xs text-gray-400 text-center">
                         {skill.name}
                       </span>
                     </div>
@@ -490,12 +541,12 @@ const App: React.FC = () => {
         </div>
       </section>
       {/* Projects Section */}
-      <section id="projects" className="py-20">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
+      <section id="projects" className="py-16 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 text-center">
             Recent Projects
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
                 title: "E-Commerce Microservice",
@@ -590,25 +641,27 @@ const App: React.FC = () => {
             ].map((project, index) => (
               <div
                 key={index}
-                className="bg-[#1E1E1E] rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl hover:shadow-indigo-500/10"
+                className="bg-[#1E1E1E] rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col"
               >
-                <div className="h-48 overflow-hidden">
+                <div className="h-40 sm:h-48 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-gray-400 mb-4 h-12 line-clamp-2">
+                <div className="p-4 sm:p-6 flex flex-col flex-1">
+                  <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-400 mb-2 sm:mb-4 h-10 sm:h-12 line-clamp-2">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="text-xs bg-[#2a2a2a] text-gray-300 px-2 py-1 rounded-full"
+                        className="text-[10px] sm:text-xs bg-[#2a2a2a] text-gray-300 px-2 py-1 rounded-full"
                       >
                         {tech}
                       </span>
@@ -616,7 +669,7 @@ const App: React.FC = () => {
                   </div>
                   <a
                     href={project.link}
-                    className="inline-flex items-center bg-[#2a2a2a] text-gray-300 px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors !rounded-button whitespace-nowrap cursor-pointer"
+                    className="inline-flex items-center bg-[#2a2a2a] text-gray-300 px-3 sm:px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors !rounded-button whitespace-nowrap cursor-pointer text-xs sm:text-base"
                   >
                     <span>View Project</span>
                     <FaArrowRight className="ml-2" />
@@ -628,72 +681,72 @@ const App: React.FC = () => {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-[#0a0a0a]">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
+      <section id="contact" className="py-16 sm:py-20 bg-[#0a0a0a]">
+        <div className="container mx-auto px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 text-center">
             Get In Touch
           </h2>
-          <div className="mt-16 flex flex-col items-center">
+          <div className="mt-10 sm:mt-16 flex flex-col items-center">
             {/* Email & Social Media Icons Row */}
-            <div className="flex flex-row space-x-6">
+            <div className="flex flex-row flex-wrap justify-center gap-4 sm:gap-6">
               {/* Email */}
               <a
                 href="mailto:izzafathony27@gmail.com"
-                className="w-16 h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
                 aria-label="Email"
               >
-                <FaEnvelope className="text-white text-2xl" />
+                <FaEnvelope className="text-white text-xl sm:text-2xl" />
               </a>
               {/* GitHub */}
               <a
                 href="https://github.com/Zzathy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-16 h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
                 aria-label="GitHub"
               >
-                <FaGithub className="text-white text-2xl" />
+                <FaGithub className="text-white text-xl sm:text-2xl" />
               </a>
               {/* LinkedIn */}
               <a
                 href="https://linkedin.com/in/izza-fathony"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-16 h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
                 aria-label="LinkedIn"
               >
-                <FaLinkedin className="text-white text-2xl" />
+                <FaLinkedin className="text-white text-xl sm:text-2xl" />
               </a>
               {/* Instagram */}
               <a
                 href="https://instagram.com/izza.fathony"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-16 h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
                 aria-label="Instagram"
               >
-                <FaInstagram className="text-white text-2xl" />
+                <FaInstagram className="text-white text-xl sm:text-2xl" />
               </a>
               {/* Facebook */}
               <a
                 href="https://facebook.com/izza.fathony.7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-16 h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
                 aria-label="Facebook"
               >
-                <FaFacebook className="text-white text-xl" />
+                <FaFacebook className="text-white text-lg sm:text-xl" />
               </a>
             </div>
           </div>
         </div>
       </section>
       {/* Footer */}
-      <footer className="bg-black py-10">
-        <div className="container mx-auto px-6">
+      <footer className="bg-black py-8 sm:py-10">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <p className="text-gray-500">
+            <div className="mb-4 sm:mb-6 md:mb-0">
+              <p className="text-gray-500 text-xs sm:text-base">
                 &copy; {new Date().getFullYear()} Izza Ihsan Fathony. All rights
                 reserved.
               </p>
@@ -704,7 +757,7 @@ const App: React.FC = () => {
       {/* Back to top button */}
       <button
         onClick={() => scrollToSection("home")}
-        className="fixed bottom-6 right-6 bg-white text-black w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-white text-black w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer"
       >
         <FaArrowUp />
       </button>
