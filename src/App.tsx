@@ -633,83 +633,57 @@ const App: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
             Get In Touch
           </h2>
-          <div className="max-w-3xl mx-auto bg-[#1a1a1a] rounded-xl p-8">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-gray-400 mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full bg-[#2a2a2a] text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 border-none text-sm"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-gray-400 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full bg-[#2a2a2a] text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 border-none text-sm"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="subject" className="block text-gray-400 mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  className="w-full bg-[#2a2a2a] text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 border-none text-sm"
-                  placeholder="Project inquiry"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-gray-400 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={5}
-                  className="w-full bg-[#2a2a2a] text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 border-none text-sm"
-                  placeholder="Your message here..."
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-200 transition-colors w-full !rounded-button whitespace-nowrap cursor-pointer"
+          <div className="mt-16 flex flex-col items-center">
+            {/* Email & Social Media Icons Row */}
+            <div className="flex flex-row space-x-6">
+              {/* Email */}
+              <a
+                href="mailto:izzafathony27@gmail.com"
+                className="w-16 h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                aria-label="Email"
               >
-                Send Message
-              </button>
-            </form>
-          </div>
-          <div className="mt-16 flex flex-col md:flex-row justify-center items-center md:space-x-12 space-y-8 md:space-y-0">
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-[#2a2a2a] rounded-full flex items-center justify-center mb-3">
-                <FaEnvelope className="text-white" />
-              </div>
-              <h3 className="text-lg font-medium">Email</h3>
-              <p className="text-gray-400">contact@johndoe.dev</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-[#2a2a2a] rounded-full flex items-center justify-center mb-3">
-                <FaLocationDot className="text-white" />
-              </div>
-              <h3 className="text-lg font-medium">Location</h3>
-              <p className="text-gray-400">San Francisco, CA</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-[#2a2a2a] rounded-full flex items-center justify-center mb-3">
-                <FaPhone className="text-white" />
-              </div>
-              <h3 className="text-lg font-medium">Phone</h3>
-              <p className="text-gray-400">+1 (555) 123-4567</p>
+                <FaEnvelope className="text-white text-2xl" />
+              </a>
+              {/* GitHub */}
+              <a
+                href="https://github.com/Zzathy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                aria-label="GitHub"
+              >
+                <FaGithub className="text-white text-2xl" />
+              </a>
+              {/* LinkedIn */}
+              <a
+                href="https://linkedin.com/in/izza-fathony"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin className="text-white text-2xl" />
+              </a>
+              {/* Instagram */}
+              <a
+                href="https://instagram.com/izza.fathony"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                aria-label="Instagram"
+              >
+                <FaInstagram className="text-white text-2xl" />
+              </a>
+              {/* Facebook */}
+              <a
+                href="https://facebook.com/izza.fathony.7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                aria-label="Facebook"
+              >
+                <FaFacebook className="text-white text-xl" />
+              </a>
             </div>
           </div>
         </div>
