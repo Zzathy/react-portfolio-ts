@@ -692,50 +692,50 @@ const App: React.FC = () => {
               {/* Email */}
               <a
                 href="mailto:izzafathony27@gmail.com"
-                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-white group"
                 aria-label="Email"
               >
-                <FaEnvelope className="text-white text-xl sm:text-2xl" />
+                <FaEnvelope className="text-gray-300 text-xl sm:text-2xl group-hover:text-black transition-colors" />
               </a>
               {/* GitHub */}
               <a
                 href="https://github.com/Zzathy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-white group"
                 aria-label="GitHub"
               >
-                <FaGithub className="text-white text-xl sm:text-2xl" />
+                <FaGithub className="text-gray-300 text-xl sm:text-2xl group-hover:text-black transition-colors" />
               </a>
               {/* LinkedIn */}
               <a
                 href="https://linkedin.com/in/izza-fathony"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-white group"
                 aria-label="LinkedIn"
               >
-                <FaLinkedin className="text-white text-xl sm:text-2xl" />
+                <FaLinkedin className="text-gray-300 text-xl sm:text-2xl group-hover:text-black transition-colors" />
               </a>
               {/* Instagram */}
               <a
                 href="https://instagram.com/izza.fathony"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-white group"
                 aria-label="Instagram"
               >
-                <FaInstagram className="text-white text-xl sm:text-2xl" />
+                <FaInstagram className="text-gray-300 text-xl sm:text-2xl group-hover:text-black transition-colors" />
               </a>
               {/* Facebook */}
               <a
                 href="https://facebook.com/izza.fathony.7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-white group"
                 aria-label="Facebook"
               >
-                <FaFacebook className="text-white text-lg sm:text-xl" />
+                <FaFacebook className="text-gray-300 text-lg sm:text-xl group-hover:text-black transition-colors" />
               </a>
             </div>
           </div>
