@@ -84,21 +84,37 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      // Determine active section based on scroll position
+      // Section IDs in order
       const sections = ["home", "resume", "skills", "projects", "contact"];
-      const currentSection = sections.find((section) => {
+      let foundSection = "home";
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          // Section is considered active if its top is above 120px and its bottom is below 120px
+          if (rect.top <= 120 && rect.bottom >= 120) {
+            foundSection = section;
+            break;
+          }
         }
-        return false;
-      });
-      if (currentSection) {
-        setActiveSection(currentSection);
       }
+      // Special handling for Contact: highlight if at bottom of page
+      const contactElem = document.getElementById("contact");
+      if (
+        contactElem &&
+        (window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 2 ||
+          (contactElem.getBoundingClientRect().top <= 120 &&
+            contactElem.getBoundingClientRect().bottom > 0))
+      ) {
+        foundSection = "contact";
+      }
+      setActiveSection(foundSection);
     };
     window.addEventListener("scroll", handleScroll);
+    // Run on mount for direct navigation/bookmarking
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   const scrollToSection = (sectionId: string) => {
