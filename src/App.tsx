@@ -80,6 +80,13 @@ const App: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("theme") || "dark";
+    }
+    return "dark";
+  });
+
   // Handle scroll events
   useEffect(() => {
     const handleScroll = () => {
@@ -117,6 +124,16 @@ const App: React.FC = () => {
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    } else {
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -125,32 +142,42 @@ const App: React.FC = () => {
     }
   };
   return (
-    <div className="bg-[#121212] text-gray-200 min-h-screen font-sans">
+    <div className="min-h-screen font-sans bg-white text-gray-900 dark:bg-[#121212] dark:text-gray-200 transition-colors duration-300">
       {/* Navigation */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 backdrop-blur-sm ${
-          isScrolled ? "bg-black/70 shadow-lg" : "bg-transparent"
+          isScrolled
+            ? "bg-white/70 shadow-lg dark:bg-black/70 dark:shadow-lg"
+            : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 py-5 flex items-center relative justify-center">
-          <div className="absolute left-6 text-xl font-bold bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent">
+          <div className="absolute left-6 text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent dark:from-gray-100 dark:to-gray-300">
             IIF
           </div>
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center bg-white/5 backdrop-blur-sm px-4 sm:px-6 py-2 rounded-full space-x-4 sm:space-x-10">
+          <div className="hidden md:flex items-center bg-white/5 dark:bg-white/5 backdrop-blur-sm px-4 sm:px-6 py-2 rounded-full space-x-4 sm:space-x-10">
             {["Home", "Resume", "Skills", "Projects", "Contact"].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className={`!rounded-button whitespace-nowrap cursor-pointer transition-all duration-300 text-xs sm:text-sm font-medium hover:text-gray-100 ${
+                className={`!rounded-button whitespace-nowrap cursor-pointer transition-all duration-300 text-xs sm:text-sm font-medium hover:text-gray-100 dark:hover:text-gray-100 hover:text-gray-900 ${
                   activeSection === item.toLowerCase()
-                    ? "text-white scale-105"
-                    : "text-gray-400"
+                    ? "text-white scale-105 dark:text-white text-gray-900"
+                    : "text-gray-400 dark:text-gray-400 text-gray-500"
                 }`}
               >
                 {item}
               </button>
             ))}
+            {/* Theme Toggle Button */}
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="ml-4 px-3 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-300 border border-gray-300 dark:border-gray-600"
+              aria-label="Toggle dark/light mode"
+            >
+              {theme === "dark" ? "🌙" : "☀️"}
+            </button>
           </div>
           <button
             className="md:hidden absolute right-6 text-white cursor-pointer !rounded-button whitespace-nowrap bg-white/5 p-2 rounded-full backdrop-blur-sm"
@@ -174,9 +201,7 @@ const App: React.FC = () => {
                   onClick={() => setMobileNavOpen(false)}
                   aria-label="Close navigation menu"
                   style={{ width: 40, height: 40 }}
-                >
-                  ×
-                </button>
+                ></button>
                 <nav className="w-full flex flex-col items-center space-y-6 mt-2">
                   {["Home", "Resume", "Skills", "Projects", "Contact"].map(
                     (item) => (
@@ -212,7 +237,7 @@ const App: React.FC = () => {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center pt-20 sm:pt-16"
+        className="min-h-screen flex items-center justify-center pt-20 sm:pt-16 bg-white dark:bg-[#121212] transition-colors duration-300"
       >
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col items-center text-center">
@@ -251,7 +276,10 @@ const App: React.FC = () => {
       </section>
 
       {/* Resume Section */}
-      <section id="resume" className="py-20 bg-[#0a0a0a]">
+      <section
+        id="resume"
+        className="py-20 bg-gray-50 dark:bg-[#0a0a0a] transition-colors duration-300"
+      >
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">
             Resume
@@ -264,7 +292,7 @@ const App: React.FC = () => {
                 Education
               </h3>
 
-              <div className="bg-[#1a1a1a] p-6 rounded-xl space-y-4">
+              <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="text-xl font-semibold text-white">
@@ -276,12 +304,12 @@ const App: React.FC = () => {
                   </div>
                   <span className="text-sm text-gray-500">2021 - 2025</span>
                 </div>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
                   Specialized in Software Engineering. Achieved 3.8 GPA.
                 </p>
               </div>
 
-              <div className="bg-[#1a1a1a] p-6 rounded-xl space-y-4">
+              <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="text-xl font-semibold text-white">
@@ -291,7 +319,7 @@ const App: React.FC = () => {
                   </div>
                   <span className="text-sm text-gray-500">2019 - 2021</span>
                 </div>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
                   Major in Software Engineering.
                 </p>
               </div>
@@ -303,7 +331,7 @@ const App: React.FC = () => {
                 Experience
               </h3>
 
-              <div className="bg-[#1a1a1a] p-6 rounded-xl space-y-4">
+              <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="text-xl font-semibold text-white">
@@ -317,7 +345,7 @@ const App: React.FC = () => {
                     February 2025 - March 2025
                   </span>
                 </div>
-                <ul className="text-gray-400 text-sm list-disc list-inside space-y-2">
+                <ul className="text-gray-600 dark:text-gray-400 text-sm list-disc list-inside space-y-2 transition-colors duration-300">
                   <li>
                     Transformed the static Public Information (PPID) portal into
                     a dynamic Laravel application by building the entire
@@ -326,7 +354,7 @@ const App: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-[#1a1a1a] p-6 rounded-xl space-y-4">
+              <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="text-xl font-semibold text-white">
@@ -338,7 +366,7 @@ const App: React.FC = () => {
                   </div>
                   <span className="text-sm text-gray-500">2022 - Present</span>
                 </div>
-                <ul className="text-gray-400 text-sm list-disc list-inside space-y-2">
+                <ul className="text-gray-600 dark:text-gray-400 text-sm list-disc list-inside space-y-2 transition-colors duration-300">
                   <li>
                     Gained extensive teaching and mentoring experience by
                     assisting in a total of 40 practicum classes from semester 3
@@ -374,7 +402,7 @@ const App: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-[#1a1a1a] p-6 rounded-xl space-y-4">
+              <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
                 <div className="flex justify-between items-start">
                   <div>
                     <h4 className="text-xl font-semibold text-white">
@@ -386,7 +414,7 @@ const App: React.FC = () => {
                     January 2021 - September 2021
                   </span>
                 </div>
-                <ul className="text-gray-400 text-sm list-disc list-inside space-y-2">
+                <ul className="text-gray-600 dark:text-gray-400 text-sm list-disc list-inside space-y-2 transition-colors duration-300">
                   <li>
                     Contributed to the development of a School Budgeting
                     Application (RAPBS), implementing a full CRUD system in
@@ -446,7 +474,10 @@ const App: React.FC = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16 sm:py-20 bg-[#0a0a0a]">
+      <section
+        id="skills"
+        className="py-16 sm:py-20 bg-gray-50 dark:bg-[#0a0a0a] transition-colors duration-300"
+      >
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 text-center">
             Technical Skills
@@ -543,19 +574,19 @@ const App: React.FC = () => {
               },
             ].map((category, categoryIndex) => (
               <div key={categoryIndex} className="space-y-4">
-                <h3 className="text-xl font-semibold text-gray-300 mb-6 text-center">
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-300 mb-6 text-center transition-colors duration-300">
                   {category.category}
                 </h3>
                 <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6">
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
-                      className="flex flex-col items-center justify-center p-2 sm:p-4 bg-[#1a1a1a] rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20"
+                      className="flex flex-col items-center justify-center p-2 sm:p-4 bg-gray-100 dark:bg-[#1a1a1a] rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20"
                     >
-                      <div className="text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2 text-gray-300">
+                      <div className="text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2 text-gray-700 dark:text-gray-300">
                         {skill.icon}
                       </div>
-                      <span className="text-[10px] sm:text-xs text-gray-400 text-center">
+                      <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 text-center">
                         {skill.name}
                       </span>
                     </div>
@@ -567,7 +598,10 @@ const App: React.FC = () => {
         </div>
       </section>
       {/* Projects Section */}
-      <section id="projects" className="py-16 sm:py-20">
+      <section
+        id="projects"
+        className="py-16 sm:py-20 bg-gray-50 dark:bg-[#121212] transition-colors duration-300"
+      >
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 text-center">
             Recent Projects
@@ -667,7 +701,7 @@ const App: React.FC = () => {
             ].map((project, index) => (
               <div
                 key={index}
-                className="bg-[#1E1E1E] rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col"
+                className="bg-white dark:bg-[#1E1E1E] rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col border border-gray-200 dark:border-[#222]"
               >
                 <div className="h-40 sm:h-48 overflow-hidden">
                   <img
@@ -677,17 +711,17 @@ const App: React.FC = () => {
                   />
                 </div>
                 <div className="p-4 sm:p-6 flex flex-col flex-1">
-                  <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2">
+                  <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-gray-800 dark:text-gray-100 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 mb-2 sm:mb-4 h-10 sm:h-12 line-clamp-2">
+                  <p className="text-gray-600 dark:text-gray-400 mb-2 sm:mb-4 h-10 sm:h-12 line-clamp-2 transition-colors duration-300">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="text-[10px] sm:text-xs bg-[#2a2a2a] text-gray-300 px-2 py-1 rounded-full"
+                        className="text-[10px] sm:text-xs bg-gray-200 dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-300 px-2 py-1 rounded-full transition-colors duration-300"
                       >
                         {tech}
                       </span>
@@ -695,7 +729,7 @@ const App: React.FC = () => {
                   </div>
                   <a
                     href={project.link}
-                    className="inline-flex w-fit items-center bg-[#2a2a2a] text-gray-300 px-3 sm:px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors !rounded-button whitespace-nowrap cursor-pointer text-xs sm:text-base"
+                    className="inline-flex w-fit items-center bg-gray-200 dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-300 px-3 sm:px-4 py-2 rounded-lg hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors !rounded-button whitespace-nowrap cursor-pointer text-xs sm:text-base"
                   >
                     <span>View Project</span>
                     <FaArrowRight className="ml-2" />
@@ -707,7 +741,10 @@ const App: React.FC = () => {
         </div>
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-20 bg-[#0a0a0a]">
+      <section
+        id="contact"
+        className="py-16 sm:py-20 bg-gray-50 dark:bg-[#0a0a0a] transition-colors duration-300"
+      >
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 text-center">
             Get In Touch
@@ -718,61 +755,61 @@ const App: React.FC = () => {
               {/* Email */}
               <a
                 href="mailto:izzafathony27@gmail.com"
-                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-white group"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-200 dark:bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black group"
                 aria-label="Email"
               >
-                <FaEnvelope className="text-gray-300 text-xl sm:text-2xl group-hover:text-black transition-colors" />
+                <FaEnvelope className="text-gray-700 dark:text-gray-300 text-xl sm:text-2xl group-hover:text-white dark:group-hover:text-black transition-colors" />
               </a>
               {/* GitHub */}
               <a
                 href="https://github.com/Zzathy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-white group"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-200 dark:bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black group"
                 aria-label="GitHub"
               >
-                <FaGithub className="text-gray-300 text-xl sm:text-2xl group-hover:text-black transition-colors" />
+                <FaGithub className="text-gray-700 dark:text-gray-300 text-xl sm:text-2xl group-hover:text-white dark:group-hover:text-black transition-colors" />
               </a>
               {/* LinkedIn */}
               <a
                 href="https://linkedin.com/in/izza-fathony"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-white group"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-200 dark:bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black group"
                 aria-label="LinkedIn"
               >
-                <FaLinkedin className="text-gray-300 text-xl sm:text-2xl group-hover:text-black transition-colors" />
+                <FaLinkedin className="text-gray-700 dark:text-gray-300 text-xl sm:text-2xl group-hover:text-white dark:group-hover:text-black transition-colors" />
               </a>
               {/* Instagram */}
               <a
                 href="https://instagram.com/izza.fathony"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-white group"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-200 dark:bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black group"
                 aria-label="Instagram"
               >
-                <FaInstagram className="text-gray-300 text-xl sm:text-2xl group-hover:text-black transition-colors" />
+                <FaInstagram className="text-gray-700 dark:text-gray-300 text-xl sm:text-2xl group-hover:text-white dark:group-hover:text-black transition-colors" />
               </a>
               {/* Facebook */}
               <a
                 href="https://facebook.com/izza.fathony.7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 sm:w-16 sm:h-16 bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-white group"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-200 dark:bg-[#2a2a2a] rounded-full flex items-center justify-center transition-colors hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black group"
                 aria-label="Facebook"
               >
-                <FaFacebook className="text-gray-300 text-lg sm:text-xl group-hover:text-black transition-colors" />
+                <FaFacebook className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl group-hover:text-white dark:group-hover:text-black transition-colors" />
               </a>
             </div>
           </div>
         </div>
       </section>
       {/* Footer */}
-      <footer className="bg-black py-8 sm:py-10">
+      <footer className="bg-gray-100 dark:bg-black py-8 sm:py-10 transition-colors duration-300">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col justify-between items-center">
             <div className="mb-4 sm:mb-6 md:mb-0">
-              <p className="text-gray-500 text-xs sm:text-base">
+              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-base transition-colors duration-300">
                 &copy; {new Date().getFullYear()} Izza Ihsan Fathony. All rights
                 reserved.
               </p>
@@ -783,7 +820,7 @@ const App: React.FC = () => {
       {/* Back to top button */}
       <button
         onClick={() => scrollToSection("home")}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-white text-black w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-gray-200 dark:bg-white text-gray-900 dark:text-black w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-300 dark:hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer"
       >
         <FaArrowUp />
       </button>
