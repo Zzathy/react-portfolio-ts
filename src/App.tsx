@@ -75,6 +75,7 @@ import {
   SiPrettier,
   SiUbuntu,
 } from "react-icons/si";
+import { RxCross2 } from "react-icons/rx";
 
 const App: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -156,16 +157,19 @@ const App: React.FC = () => {
             IIF
           </div>
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center bg-white/5 dark:bg-white/5 backdrop-blur-sm px-4 sm:px-6 py-2 rounded-full space-x-4 sm:space-x-10">
+          <div className="hidden md:flex items-center bg-gray-100/90 dark:bg-white/5 backdrop-blur-sm px-4 sm:px-6 py-2 rounded-full space-x-4 sm:space-x-10 transition-colors duration-300">
             {["Home", "Resume", "Skills", "Projects", "Contact"].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className={`!rounded-button whitespace-nowrap cursor-pointer transition-all duration-300 text-xs sm:text-sm font-medium hover:text-gray-100 dark:hover:text-gray-100 hover:text-gray-900 ${
-                  activeSection === item.toLowerCase()
-                    ? "text-white scale-105 dark:text-white text-gray-900"
-                    : "text-gray-400 dark:text-gray-400 text-gray-500"
-                }`}
+                className={`!rounded-button whitespace-nowrap cursor-pointer transition-all duration-300 text-xs sm:text-sm font-medium
+                  hover:text-gray-900 dark:hover:text-gray-100
+                  ${
+                    activeSection === item.toLowerCase()
+                      ? "text-black dark:text-white font-bold"
+                      : "text-gray-500 dark:text-gray-400"
+                  }
+                `}
               >
                 {item}
               </button>
@@ -173,14 +177,14 @@ const App: React.FC = () => {
             {/* Theme Toggle Button */}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="ml-4 px-3 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-300 border border-gray-300 dark:border-gray-600"
+              className="px-3 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-300 border border-gray-300 dark:border-gray-600"
               aria-label="Toggle dark/light mode"
             >
               {theme === "dark" ? "🌙" : "☀️"}
             </button>
           </div>
           <button
-            className="md:hidden absolute right-6 text-white cursor-pointer !rounded-button whitespace-nowrap bg-white/5 p-2 rounded-full backdrop-blur-sm"
+            className="md:hidden absolute right-6 cursor-pointer !rounded-button whitespace-nowrap p-2 rounded-full border transition-colors duration-300 bg-gray-200 text-black border-gray-300 hover:bg-gray-300 dark:bg-white/5 dark:text-white dark:border-white/10 dark:hover:bg-white/10"
             onClick={() => setMobileNavOpen((open) => !open)}
             aria-label="Open navigation menu"
           >
@@ -195,30 +199,42 @@ const App: React.FC = () => {
                 onClick={() => setMobileNavOpen(false)}
               />
               {/* Menu Card */}
-              <div className="relative w-full max-w-xs mx-auto mt-20 bg-[#1E1E1E] rounded-2xl shadow-2xl p-8 flex flex-col items-center animate-slideDown border border-[#2a2a2a]">
+              <div className="relative w-full max-w-xs mx-auto mt-20 rounded-2xl shadow-2xl p-8 flex flex-col items-center animate-slideDown border transition-colors duration-300 bg-white border-gray-200 dark:bg-[#1E1E1E] dark:border-[#2a2a2a]">
                 <button
-                  className="absolute -top-5 -right-5 bg-[#2a2a2a] text-white rounded-full p-2 shadow-lg hover:bg-white hover:text-black transition-colors text-2xl font-bold leading-none border border-[#444]"
+                  className="absolute -top-5 -right-5 bg-gray-200 text-black rounded-full p-2 shadow-lg hover:bg-gray-300 hover:text-black transition-colors text-2xl font-bold leading-none border border-gray-300 dark:bg-[#2a2a2a] dark:text-white dark:border-[#444] dark:hover:bg-white dark:hover:text-black"
                   onClick={() => setMobileNavOpen(false)}
                   aria-label="Close navigation menu"
                   style={{ width: 40, height: 40 }}
-                ></button>
+                >
+                  <RxCross2 />
+                </button>
                 <nav className="w-full flex flex-col items-center space-y-6 mt-2">
                   {["Home", "Resume", "Skills", "Projects", "Contact"].map(
                     (item) => (
                       <button
                         key={item}
                         onClick={() => scrollToSection(item.toLowerCase())}
-                        className={`w-full text-lg font-bold py-3 rounded-xl transition-all duration-200 tracking-wide shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 border border-[#2a2a2a] ${
-                          activeSection === item.toLowerCase()
-                            ? "bg-white text-black scale-105 shadow-lg"
-                            : "bg-[#2a2a2a] text-gray-300 hover:bg-white hover:text-black"
-                        }`}
+                        className={`w-full text-lg font-bold py-3 rounded-xl transition-all duration-200 tracking-wide shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400 border border-gray-200 dark:border-[#232329] 
+                          ${
+                            activeSection === item.toLowerCase()
+                              ? "bg-gray-100 text-black font-bold scale-105 shadow-lg border-gray-300 dark:bg-white/5 dark:text-white dark:border-white/10"
+                              : "bg-transparent text-gray-500 hover:text-black hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5"
+                          }
+                        `}
                       >
                         {item}
                       </button>
                     )
                   )}
                 </nav>
+                {/* Theme Toggle Button (Mobile, bottom) */}
+                <button
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="mt-8 px-3 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600 transition-colors duration-300 mx-auto"
+                  aria-label="Toggle dark/light mode"
+                >
+                  {theme === "dark" ? "🌙" : "☀️"}
+                </button>
               </div>
               {/* Animation keyframes */}
               <style>{`
