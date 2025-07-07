@@ -695,7 +695,7 @@ const App: React.FC = () => {
                   </div>
                   <a
                     href={project.link}
-                    className="inline-flex items-center bg-[#2a2a2a] text-gray-300 px-3 sm:px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors !rounded-button whitespace-nowrap cursor-pointer text-xs sm:text-base"
+                    className="inline-flex w-fit items-center bg-[#2a2a2a] text-gray-300 px-3 sm:px-4 py-2 rounded-lg hover:bg-white hover:text-black transition-colors !rounded-button whitespace-nowrap cursor-pointer text-xs sm:text-base"
                   >
                     <span>View Project</span>
                     <FaArrowRight className="ml-2" />
