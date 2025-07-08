@@ -502,7 +502,7 @@ const App: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 text-center">
             Technical Skills
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <div className="flex flex-col gap-8 md:gap-12">
             {[
               {
                 category: "Programming Languages",
@@ -597,11 +597,11 @@ const App: React.FC = () => {
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-300 mb-6 text-center transition-colors duration-300">
                   {category.category}
                 </h3>
-                <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6">
+                <div className="w-full flex flex-wrap justify-center gap-2 sm:gap-3">
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
-                      className="flex flex-col items-center justify-center p-2 sm:p-4 bg-gray-100 dark:bg-[#1a1a1a] rounded-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20"
+                      className="flex flex-col items-center justify-center p-2 sm:p-3 bg-gray-200 dark:bg-[#1a1a1a] rounded-lg min-w-[70px] max-w-[90px] min-h-[70px] max-h-[90px] m-1 transform transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/20"
                     >
                       <div className="text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2 text-gray-700 dark:text-gray-300">
                         {skill.icon}
