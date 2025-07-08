@@ -74,6 +74,7 @@ import {
   SiPostman,
   SiPrettier,
   SiUbuntu,
+  SiCpanel,
 } from "react-icons/si";
 import { RxCross2 } from "react-icons/rx";
 
@@ -564,6 +565,7 @@ const App: React.FC = () => {
                   { name: "Apache", icon: <SiApache /> },
                   { name: "AWS", icon: <BiLogoAws /> },
                   { name: "Cloudflare", icon: <SiCloudflare /> },
+                  { name: "cPanel", icon: <SiCpanel /> },
                   { name: "DigitalOcean", icon: <BiLogoDigitalocean /> },
                   { name: "Docker", icon: <BiLogoDocker /> },
                   { name: "Github Actions", icon: <SiGithubactions /> },
