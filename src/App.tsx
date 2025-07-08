@@ -264,15 +264,15 @@ const App: React.FC = () => {
                 className="rounded-full object-cover w-full h-full"
               />
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-gray-900 to-gray-500 bg-clip-text text-transparent dark:from-white dark:to-gray-400 leading-tight sm:leading-[1.15] md:leading-[1.18] pb-2">
               Izza Ihsan Fathony
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-6 sm:mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-400 mb-6 sm:mb-8">
               Backend Developer
             </p>
             {/* Description/Introducing Section */}
             <div className="max-w-2xl mx-auto mb-8 sm:mb-10">
-              <p className="text-base sm:text-lg text-gray-400 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-700 dark:text-gray-400 leading-relaxed">
                 A Back-End Developer specializing in the PHP and Laravel
                 ecosystem. Through various projects, I've collaborated with
                 development teams to build and launch new features. I am
@@ -282,7 +282,7 @@ const App: React.FC = () => {
             </div>
             <div className="flex space-x-2 sm:space-x-4">
               <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">
-                <button className="bg-white text-black px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer text-xs sm:text-base">
+                <button className="bg-black text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium hover:bg-gray-900 transition-colors !rounded-button whitespace-nowrap cursor-pointer text-xs sm:text-base dark:bg-white dark:text-black dark:hover:bg-gray-200">
                   <span>View CV</span>
                 </button>
               </a>
