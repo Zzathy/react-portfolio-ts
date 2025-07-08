@@ -734,7 +734,7 @@ const App: React.FC = () => {
                   <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-gray-800 dark:text-gray-100 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-2 sm:mb-4 h-10 sm:h-12 line-clamp-2 transition-colors duration-300">
+                  <p className="text-gray-800 dark:text-gray-400 mb-2 sm:mb-4 h-10 sm:h-12 line-clamp-2 transition-colors duration-300">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
