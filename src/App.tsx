@@ -829,7 +829,7 @@ const App: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col justify-between items-center">
             <div className="mb-4 sm:mb-6 md:mb-0">
-              <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-base transition-colors duration-300">
+              <p className="text-gray-800 dark:text-gray-400 text-xs sm:text-base transition-colors duration-300">
                 &copy; {new Date().getFullYear()} Izza Ihsan Fathony. All rights
                 reserved.
               </p>
@@ -840,7 +840,7 @@ const App: React.FC = () => {
       {/* Back to top button */}
       <button
         onClick={() => scrollToSection("home")}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-gray-200 dark:bg-white text-gray-900 dark:text-black w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-300 dark:hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-black dark:bg-white text-white dark:text-black w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-900 dark:hover:bg-gray-200 transition-colors !rounded-button whitespace-nowrap cursor-pointer"
       >
         <FaArrowUp />
       </button>
