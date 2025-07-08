@@ -606,7 +606,7 @@ const App: React.FC = () => {
                       <div className="text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2 text-gray-700 dark:text-gray-300">
                         {skill.icon}
                       </div>
-                      <span className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 text-center">
+                      <span className="text-[10px] sm:text-xs text-gray-800 dark:text-gray-400 text-center">
                         {skill.name}
                       </span>
                     </div>
