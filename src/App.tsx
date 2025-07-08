@@ -311,16 +311,16 @@ const App: React.FC = () => {
               <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h4 className="text-xl font-semibold text-white">
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
                       Bachelor of Computer Science
                     </h4>
-                    <p className="text-gray-400">
+                    <p className="text-gray-500 dark:text-gray-400">
                       University of Muhammadiyah Malang
                     </p>
                   </div>
                   <span className="text-sm text-gray-500">2021 - 2025</span>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
+                <p className="text-gray-700 dark:text-gray-400 text-sm transition-colors duration-300">
                   Specialized in Software Engineering. Achieved 3.8 GPA.
                 </p>
               </div>
@@ -328,14 +328,16 @@ const App: React.FC = () => {
               <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h4 className="text-xl font-semibold text-white">
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
                       SMKN 1 Banyuwangi
                     </h4>
-                    <p className="text-gray-400">Vocational High School</p>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Vocational High School
+                    </p>
                   </div>
                   <span className="text-sm text-gray-500">2019 - 2021</span>
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors duration-300">
+                <p className="text-gray-700 dark:text-gray-400 text-sm transition-colors duration-300">
                   Major in Software Engineering.
                 </p>
               </div>
@@ -350,10 +352,10 @@ const App: React.FC = () => {
               <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h4 className="text-xl font-semibold text-white">
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
                       Web Developer Intern
                     </h4>
-                    <p className="text-gray-400">
+                    <p className="text-gray-500 dark:text-gray-400">
                       API Banyuwangi (Indonesian Pilot Academy)
                     </p>
                   </div>
@@ -361,7 +363,7 @@ const App: React.FC = () => {
                     February 2025 - March 2025
                   </span>
                 </div>
-                <ul className="text-gray-600 dark:text-gray-400 text-sm list-disc list-inside space-y-2 transition-colors duration-300">
+                <ul className="text-gray-700 dark:text-gray-400 text-sm list-disc list-inside space-y-2 transition-colors duration-300">
                   <li>
                     Transformed the static Public Information (PPID) portal into
                     a dynamic Laravel application by building the entire
@@ -373,16 +375,16 @@ const App: React.FC = () => {
               <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h4 className="text-xl font-semibold text-white">
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
                       Laboratory Assistant (Part-time)
                     </h4>
-                    <p className="text-gray-400">
+                    <p className="text-gray-500 dark:text-gray-400">
                       Informatics Laboratory, University of Muhammadiyah Malang
                     </p>
                   </div>
                   <span className="text-sm text-gray-500">2022 - Present</span>
                 </div>
-                <ul className="text-gray-600 dark:text-gray-400 text-sm list-disc list-inside space-y-2 transition-colors duration-300">
+                <ul className="text-gray-700 dark:text-gray-400 text-sm list-disc list-inside space-y-2 transition-colors duration-300">
                   <li>
                     Gained extensive teaching and mentoring experience by
                     assisting in a total of 40 practicum classes from semester 3
@@ -421,16 +423,18 @@ const App: React.FC = () => {
               <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h4 className="text-xl font-semibold text-white">
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
                       Web Developer (Part-time)
                     </h4>
-                    <p className="text-gray-400">Pixel Dev Factory</p>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Pixel Dev Factory
+                    </p>
                   </div>
                   <span className="text-sm text-gray-500">
                     January 2021 - September 2021
                   </span>
                 </div>
-                <ul className="text-gray-600 dark:text-gray-400 text-sm list-disc list-inside space-y-2 transition-colors duration-300">
+                <ul className="text-gray-700 dark:text-gray-400 text-sm list-disc list-inside space-y-2 transition-colors duration-300">
                   <li>
                     Contributed to the development of a School Budgeting
                     Application (RAPBS), implementing a full CRUD system in
