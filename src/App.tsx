@@ -301,45 +301,45 @@ const App: React.FC = () => {
             Resume
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Education Column */}
-            <div className="space-y-8">
+          <div className="flex flex-col gap-12">
+            {/* Education Row */}
+            <div>
               <h3 className="text-2xl font-semibold mb-8 text-center">
                 Education
               </h3>
-
-              <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
-                      Bachelor of Computer Science
-                    </h4>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      University of Muhammadiyah Malang
-                    </p>
+              <div className="flex flex-col md:flex-row gap-8 justify-center">
+                <div className="bg-white dark:bg-[#1a1a1a] flex-1 p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300 min-w-[260px]">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
+                        Bachelor of Computer Science
+                      </h4>
+                      <p className="text-gray-500 dark:text-gray-400">
+                        University of Muhammadiyah Malang
+                      </p>
+                    </div>
+                    <span className="text-sm text-gray-500">2021 - 2025</span>
                   </div>
-                  <span className="text-sm text-gray-500">2021 - 2025</span>
+                  <p className="text-gray-700 dark:text-gray-400 text-sm transition-colors duration-300">
+                    Specialized in Software Engineering. Achieved 3.8 GPA.
+                  </p>
                 </div>
-                <p className="text-gray-700 dark:text-gray-400 text-sm transition-colors duration-300">
-                  Specialized in Software Engineering. Achieved 3.8 GPA.
-                </p>
-              </div>
-
-              <div className="bg-white dark:bg-[#1a1a1a] p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
-                      SMKN 1 Banyuwangi
-                    </h4>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Vocational High School
-                    </p>
+                <div className="bg-white dark:bg-[#1a1a1a] flex-1 p-6 rounded-xl space-y-4 border border-gray-200 dark:border-[#222] transition-colors duration-300 min-w-[260px]">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
+                        SMKN 1 Banyuwangi
+                      </h4>
+                      <p className="text-gray-500 dark:text-gray-400">
+                        Vocational High School
+                      </p>
+                    </div>
+                    <span className="text-sm text-gray-500">2019 - 2021</span>
                   </div>
-                  <span className="text-sm text-gray-500">2019 - 2021</span>
+                  <p className="text-gray-700 dark:text-gray-400 text-sm transition-colors duration-300">
+                    Major in Software Engineering.
+                  </p>
                 </div>
-                <p className="text-gray-700 dark:text-gray-400 text-sm transition-colors duration-300">
-                  Major in Software Engineering.
-                </p>
               </div>
             </div>
 
