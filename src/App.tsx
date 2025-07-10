@@ -862,7 +862,10 @@ const App: React.FC = () => {
         </div>
       </section>
       {/* Footer */}
-      <footer className="bg-gray-100 dark:bg-black py-8 sm:py-10 transition-colors duration-300">
+      <footer
+        className="bg-gray-100 dark:bg-black py-8 sm:py-10 transition-colors duration-300"
+        data-aos="fade-up"
+      >
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col justify-between items-center">
             <div className="mb-4 sm:mb-6 md:mb-0">
