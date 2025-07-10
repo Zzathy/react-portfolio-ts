@@ -77,6 +77,8 @@ import {
   SiCpanel,
 } from "react-icons/si";
 import { RxCross2 } from "react-icons/rx";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const App: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -88,6 +90,14 @@ const App: React.FC = () => {
     }
     return "dark";
   });
+
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }, []);
 
   // Handle scroll events
   useEffect(() => {
@@ -255,25 +265,42 @@ const App: React.FC = () => {
       <section
         id="home"
         className="min-h-screen flex items-center justify-center pt-20 sm:pt-16 bg-white dark:bg-[#121212] transition-colors duration-300"
+        data-aos="fade-up"
       >
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col items-center text-center">
-            <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-6 sm:mb-8 border-2 border-gray-600">
+            <div
+              className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center mb-6 sm:mb-8 border-2 border-gray-600"
+              data-aos="fade-up"
+              data-aos-delay="0"
+            >
               <img
                 src={profileImage}
                 alt=""
                 className="rounded-full object-cover w-full h-full"
               />
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-gray-900 to-gray-500 bg-clip-text text-transparent dark:from-white dark:to-gray-400 leading-tight sm:leading-[1.15] md:leading-[1.18] pb-2">
+            <h1
+              className="text-4xl sm:text-5xl md:text-7xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-gray-900 to-gray-500 bg-clip-text text-transparent dark:from-white dark:to-gray-400 leading-tight sm:leading-[1.15] md:leading-[1.18] pb-2"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               Izza Ihsan Fathony
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-400 mb-6 sm:mb-8">
+            <p
+              className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-400 mb-6 sm:mb-8"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               Backend Developer
             </p>
             {/* Description/Introducing Section */}
             <div className="max-w-2xl mx-auto mb-8 sm:mb-10">
-              <p className="text-base sm:text-lg text-gray-700 dark:text-gray-400 leading-relaxed">
+              <p
+                className="text-base sm:text-lg text-gray-700 dark:text-gray-400 leading-relaxed"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
                 A Back-End Developer specializing in the PHP and Laravel
                 ecosystem. Through various projects, I've collaborated with
                 development teams to build and launch new features. I am
