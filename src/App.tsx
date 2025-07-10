@@ -796,12 +796,17 @@ const App: React.FC = () => {
       <section
         id="contact"
         className="py-16 sm:py-20 bg-gray-50 dark:bg-[#0a0a0a] transition-colors duration-300"
+        data-aos="fade-up"
       >
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 text-center">
             Get In Touch
           </h2>
-          <div className="mt-10 sm:mt-16 flex flex-col items-center">
+          <div
+            className="mt-10 sm:mt-16 flex flex-col items-center"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
             {/* Email & Social Media Icons Row */}
             <div className="flex flex-row flex-wrap justify-center gap-4 sm:gap-6">
               {/* Email */}
