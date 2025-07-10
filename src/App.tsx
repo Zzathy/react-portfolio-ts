@@ -650,6 +650,7 @@ const App: React.FC = () => {
       <section
         id="projects"
         className="py-16 sm:py-20 bg-gray-50 dark:bg-[#121212] transition-colors duration-300"
+        data-aos="fade-up"
       >
         <div className="container mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 sm:mb-16 text-center">
@@ -751,6 +752,8 @@ const App: React.FC = () => {
               <div
                 key={index}
                 className="bg-white dark:bg-[#1E1E1E] rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl hover:shadow-indigo-500/10 flex flex-col border border-gray-200 dark:border-[#222]"
+                data-aos="zoom-in-up"
+                data-aos-delay={index * 100}
               >
                 <div className="h-40 sm:h-48 overflow-hidden">
                   <img
