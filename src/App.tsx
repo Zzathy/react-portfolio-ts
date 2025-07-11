@@ -674,79 +674,18 @@ const App: React.FC = () => {
                 link: "#",
               },
               {
-                title: "Real-time Analytics Dashboard",
+                title: "PPID API Banyuwangi",
                 description:
-                  "Real-time data processing pipeline and analytics dashboard for monitoring system performance metrics.",
-                image:
-                  "https://readdy.ai/api/search-image?query=Futuristic%20data%20visualization%20dashboard%20with%20dark%20theme%20showing%20real-time%20analytics%20graphs%20and%20charts%20with%20glowing%20blue%20and%20purple%20elements%20on%20computer%20screens%20in%20a%20modern%20office%20environment&width=600&height=400&seq=2&orientation=landscape",
+                  "A government portal for the Indonesian Pilot Academy enabling public access to official information.",
+                image: ppidImage,
                 technologies: [
-                  "Python",
-                  "Kafka",
-                  "ElasticSearch",
+                  "Boostrap",
+                  "Laravel",
+                  "MySQL",
                   "React",
-                  "D3.js",
+                  "Tailwind",
                 ],
-                link: "#",
-              },
-              {
-                title: "Banking API Gateway",
-                description:
-                  "Secure API gateway for a banking system, handling authentication, rate limiting, and request routing.",
-                image:
-                  "https://readdy.ai/api/search-image?query=Secure%20digital%20banking%20infrastructure%20visualization%20with%20glowing%20network%20connections%20and%20data%20encryption%20symbols%20in%20a%20dark%20professional%20environment%20with%20blue%20accent%20lights%20representing%20API%20security&width=600&height=400&seq=3&orientation=landscape",
-                technologies: [
-                  "Java",
-                  "Spring Boot",
-                  "OAuth2",
-                  "PostgreSQL",
-                  "RabbitMQ",
-                ],
-                link: "#",
-              },
-              {
-                title: "IoT Device Management Platform",
-                description:
-                  "Centralized platform for managing and monitoring thousands of IoT devices across multiple locations.",
-                image:
-                  "https://readdy.ai/api/search-image?query=Connected%20IoT%20devices%20network%20visualization%20with%20smart%20home%20gadgets%20and%20industrial%20sensors%20communicating%20with%20central%20management%20system%20in%20a%20futuristic%20dark%20environment%20with%20glowing%20connection%20lines&width=600&height=400&seq=4&orientation=landscape",
-                technologies: [
-                  "Node.js",
-                  "MQTT",
-                  "InfluxDB",
-                  "WebSockets",
-                  "AWS IoT",
-                ],
-                link: "#",
-              },
-              {
-                title: "Content Delivery Network",
-                description:
-                  "Custom CDN solution with edge caching, image optimization, and global load balancing capabilities.",
-                image:
-                  "https://readdy.ai/api/search-image?query=Global%20network%20infrastructure%20visualization%20showing%20content%20delivery%20nodes%20across%20world%20map%20with%20data%20streams%20and%20caching%20mechanisms%20in%20a%20dark%20professional%20environment%20with%20blue%20accent%20lights&width=600&height=400&seq=5&orientation=landscape",
-                technologies: [
-                  "Golang",
-                  "Nginx",
-                  "Redis",
-                  "Terraform",
-                  "Cloudflare Workers",
-                ],
-                link: "#",
-              },
-              {
-                title: "Blockchain Payment System",
-                description:
-                  "Secure payment processing system built on blockchain technology with smart contract integration.",
-                image:
-                  "https://readdy.ai/api/search-image?query=Blockchain%20technology%20visualization%20with%20connected%20blocks%20and%20cryptocurrency%20payment%20processing%20in%20a%20secure%20digital%20environment%20with%20glowing%20transaction%20paths%20and%20encryption%20symbols&width=600&height=400&seq=6&orientation=landscape",
-                technologies: [
-                  "Solidity",
-                  "Ethereum",
-                  "Web3.js",
-                  "Node.js",
-                  "PostgreSQL",
-                ],
-                link: "#",
+                link: "https://github.com/Zzathy/ppid",
               },
             ].map((project, index) => (
               <div
