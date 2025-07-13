@@ -1,6 +1,8 @@
 // The exported code uses Tailwind CSS. Install Tailwind CSS in your dev environment to ensure all styles work.
 import React, { useState, useEffect } from "react";
 import profileImage from "./assets/images/profile.jpg";
+import ppidImage from "./assets/images/ppid.png";
+import jacketImage from "./assets/images/jacket.png";
 import {
   BiLogoCPlusPlus,
   BiLogoCss3,
@@ -659,19 +661,18 @@ const App: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
-                title: "E-Commerce Microservice",
+                title: "UMM Informatics Lab Jacket",
                 description:
-                  "Scalable microservice architecture for a high-traffic e-commerce platform handling 10k+ transactions daily.",
-                image:
-                  "https://readdy.ai/api/search-image?query=Modern%20digital%20technology%20visualization%20with%20abstract%20code%20structures%20and%20server%20racks%20in%20a%20dark%20blue%20environment%20with%20glowing%20elements%20representing%20microservices%20architecture%20for%20e-commerce%20systems&width=600&height=400&seq=1&orientation=landscape",
+                  "A web-based system designed to manage and streamline online orders for laboratory jackets.",
+                image: jacketImage,
                 technologies: [
-                  "Node.js",
-                  "Docker",
-                  "MongoDB",
-                  "Redis",
-                  "Kubernetes",
+                  "Inertia.js",
+                  "Laravel",
+                  "MySQL",
+                  "Tailwind",
+                  "Vue",
                 ],
-                link: "#",
+                link: "https://infotech.umm.ac.id/jacketlab/",
               },
               {
                 title: "PPID API Banyuwangi",
